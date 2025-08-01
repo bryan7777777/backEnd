@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <title>BACK1</title>
+</head>
+<body>
+    <h1>formulario torcedor</h1>
+    <form action="">
+        <label for="nome">Nome:</label>
+        <input type="text">
+        <label for="nome">Sobre nome:</label>
+        <input type="text">
+        <label for="nome">Idade:</label>
+        <input type="number" min="1" max="200">
+        <label for="nome">Informe seu celular com DDD:</label>
+        <input type="number">
+        <label for="nome">Informe seu time do coração:</label>
+        <input type="text">
+
+        <label for="socioTorcedor">Você é sócio torcedor?</label>
+        <div class="sla">
+        <input type="radio" id="socioSim" name="socio" value="simSocio">
+        <label for="html">SIM</label><br>
+        <input type="radio" id="socioNao" name="socio" value="naoSocio">
+        <label for="css">NAO</label><br>
+        </div>
+
+        <label for="socioTorcedor">Gostaria de receber notificações por SMS?</label>
+        <div class="sla">
+        <input type="radio" id="smsSim" name="sms" value="simSms">
+        <label for="html">SIM</label><br>
+        <input type="radio" id="smsNao" name="sms" value="naoSms">
+        <label for="css">NAO</label><br>
+        </div>
+
+        <label for="socioTorcedor">Quantas vezes você frequenta os estadios?</label>
+        <div class="frequencia">
+        <input type="radio" id="estadio1" name="estadio" value="estadio1">
+        <label for="html">Não frequento</label><br>
+        <input type="radio" id="estadio2" name="estadio" value="estadio2">
+        <label for="css">1 vez por mês</label><br>
+        <input type="radio" id="estadio3" name="estadio" value="estadio3">
+        <label for="css">mais de 3 vezes por mês</label><br>
+        </div>
+
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>
