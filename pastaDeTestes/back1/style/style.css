@@ -41,3 +41,7 @@ label, input{
     color: rgb(48, 48, 48);
     font-size: 20px;
 }
+
+.obrigatorio{
+    color: red;
+}
