@@ -8,17 +8,17 @@
 </head>
 <body>
     <h1>FORMULARIO DO TORCEDOR</h1>
-    <form action="" method="get">
+    <form action="./pages/cadastrarAction.php" method="post">
         <label for="nome">Nome:<span class="obrigatorio">*</span></label>
-        <input type="text" placeholder="NOME" required>
+        <input type="text" name="nome" placeholder="NOME" required>
         <label for="nome">Sobre nome:<span class="obrigatorio">*</span></label>
-        <input type="text" placeholder="SOBRE NOME" required>
+        <input type="text" name="sobreNome" placeholder="SOBRE NOME" required>
         <label for="nome">Idade:<span class="obrigatorio">*</span></label>
-        <input type="number" min="1" max="200" maxlength="3" placeholder="00" required>
+        <input type="number" name="idade" min="1" max="200" maxlength="3" placeholder="00" required>
         <label for="nome">Informe seu celular com DDD:<span class="obrigatorio">*</span></label>
-        <input type="number" placeholder="00 000000000" max="999999999999" maxlength="12" required>
+        <input type="number" name="celular" placeholder="00 000000000" max="999999999999" maxlength="12" required>
         <label for="nome">Informe seu time do coração:<span class="obrigatorio">*</span></label>
-        <input type="text" placeholder="NOME DO TIME" required>
+        <input type="text" name="time" placeholder="NOME DO TIME" required>
 
         <label for="socioTorcedor">Você é sócio torcedor?</label>
         <div class="sla">
