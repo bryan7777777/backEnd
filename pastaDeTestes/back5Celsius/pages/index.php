@@ -5,8 +5,8 @@ $celsius = filter_input(INPUT_GET,"celsius", FILTER_VALIDATE_FLOAT);
 if ($celsius == false) {
     $result = "ERRO, VALORES INVALIDOS";
 }else{
-    $conversão = ($celsius * (9/5)) + 32;
-    $result = "o calculo da conversão é: ".$conversão;
+    $conversao = ($celsius * (9/5)) + 32;
+    $result = "o calculo da conversão é: ".$conversao;
 }
 ?>
 
