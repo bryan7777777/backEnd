@@ -2,7 +2,7 @@
 $nome = filter_input(INPUT_GET, "nome");
 $idade = filter_input(INPUT_GET, "idade", FILTER_VALIDATE_INT);
 
-switch ($idade) {
+switch ($idade == true) {
     case $idade >= 60:
         $declaracao = "Melhor idade ";
         $descricao = "você é bem vindo ";
