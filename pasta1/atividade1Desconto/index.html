@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/desconto.css">
+    <title>Desconto</title>
+</head>
+<body>
+    <form action="./pages/desconto.php" method="get">
+        <label for="">Digite seu nome:</label>
+        <input type="text" placeholder="NOME" name="nome">
+        <label for="">Digite sua idade:</label>
+        <input type="number" placeholder="00" name="idade">
+        <label for="">Digite o valor da sua compra:</label>
+        <input type="number" placeholder="0.00" name="valor">
+        <label for="">Você é cliente VIP?</label>
+        
+        <div>
+        <label for="">SIM</label>
+        <input type="radio" name="vip" value="sim">
+        </div>
+        <div>
+        <Label>NÃO</Label>
+        <input type="radio" name="vip" value="nao">
+        </div>
+        <input type="submit" value="Calcular desconto">
+    </form>
+</body>
+</html>
