@@ -1,0 +1,35 @@
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+    border: solid blueviolet;
+    border-radius: 25px;
+    width: 20%;
+    padding: 20px;
+}
+
+p{
+    border: solid 1px blueviolet;
+    padding: 5px;
+    width: 95%;
+}
+
+#resultado{
+    width: 250px;
+    border:  solid 2px blueviolet;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: center;
+}
