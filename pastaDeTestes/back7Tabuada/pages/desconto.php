@@ -8,7 +8,7 @@ if ($divisor == false || $limite == false) {
 }else{
     for ($i = 1; $i <= $limite; $i++) {
         $resultadado = $divisor*$i;
-        $result = "<p>" . $divisor . " X " . $i . " = " . $resultadado . "</p>" . $result;
+        $result = $result . "<tr>" . "<td>" . $divisor . "</td>" . "<td>" . " X " . "</td>" . "<td>" . $i . "</td>" . "<td>" . " = " . "</td>" . "<td>" . $resultadado . "</td>" . "</tr>";
 }}
 ?>
 
@@ -23,8 +23,11 @@ if ($divisor == false || $limite == false) {
 </head>
 
 <body>
-    <div id="resultado">
+    <div id="form">
+        <h1>TABELA</h1>
+    <table id="resultado">
         <?= $result?>
+    </table>
     </div>
 </body>
 
