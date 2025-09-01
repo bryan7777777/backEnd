@@ -3,11 +3,18 @@ $n1 = filter_input(INPUT_GET,"n1");
 $n2 = filter_input(INPUT_GET,"n2");
 $passo = filter_input(INPUT_GET,"passo");
 $result = "";
-
-for ($i = 0; $n1 <= $n2; $n1 = $n1 + $passo){
-
-    $result = $result . "<li> $n1 </li>";
-}
+$primeiro = $n1;
+for ($i = $n1; $n1 <= $n2; $n1 = $n1 + $passo){
+    switch ($n1) {
+        case $n1 == $primeiro:
+            $result = $result . "<li> $n1 </li>" . "INICIO";
+            break;
+        case $n1 == $n2:
+            $result = $result . "<li> $n1 </li>" . "FIM";
+            break;
+        default:
+            $result = $result . "<li> $n1 </li>";
+}}
 ?>
 
 <!DOCTYPE html>
