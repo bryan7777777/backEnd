@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form atividade</title>
+</head>
+
+<body>
+    <form action="./pages/imposto.php" method="get">
+        <h1>IMPOSTO</h1>
+        <label for="">Quantas horas você trabalhou neste mês?</label>
+        <input type="number" placeholder="00" name="mes">
+        <label for="">Quanto você recebe por hora?</label>
+        <input type="number" placeholder="00" name="hora">
+        <label for="">Qual o percentual do imposto?</label>
+        <input type="number" placeholder="00" name="imposto">
+        <input type="submit" value="calcular imposto">
+    </form>
+    <form action="./pages/operacoes.php" method="get">
+        <h1>CALCULO</h1>
+        <label for="">Qual numero deseja calcular de 1 a 10?</label>
+        <input type="number" placeholder="00" name="num1">
+        <label for="">Qual operação deseja?</label>
+        <div class="bloco">
+            <div class="bloco2">
+            <label for="">+</label>
+            <input type="radio" name="operacao" value="1">
+            </div>
+            <div class="bloco2">
+            <label for="">-</label>
+            <input type="radio" name="operacao" value="2">
+            </div>
+            <div class="bloco2">
+            <label for="">X</label>
+            <input type="radio" name="operacao" value="3">
+            </div>
+            <div class="bloco2">
+            <label for="">/</label>
+            <input type="radio" name="operacao" value="4">
+            </div>
+        </div>
+        <input type="submit" value="calcular numero">
+    </form>
+    <form action="./pages/3numeros.php" method="get">
+        <h1>NUMEROS IMPARES E PAR</h1>
+        <label for="">Digite o primeiro numero</label>
+        <input type="number" placeholder="00" name="n1">
+        <label for="">Digite o primeiro segundo</label>
+        <input type="number" placeholder="00" name="n2">
+        <label for="">Digite o primeiro terceiro</label>
+        <input type="number" placeholder="00" name="n3">
+        <input type="submit" value="calcular numero">
+    </form>
+</body>
+
+</html>

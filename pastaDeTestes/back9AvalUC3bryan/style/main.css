@@ -1,0 +1,25 @@
+table{
+    background-color: black;
+    color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    border-collapse: collapse;
+}
+tr{
+    border-collapse: collapse;
+}
+
+td{
+    width: 100%;
+    border: solid white 2px;
+    border-collapse: collapse;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+tbody{
+    height: 100vh;
+}
