@@ -11,10 +11,11 @@ $dog = filter_input(INPUT_GET, "dog");
 $gato = filter_input(INPUT_GET, "gato");
 $passaro = filter_input(INPUT_GET, "passaro");
 $sobremesa = filter_input(INPUT_GET, "sobremesa");
+$extra = filter_input(INPUT_GET, "extra");
 $tarefa = filter_input(INPUT_GET, "tarefa");
 $result = "";
 
-$coisas = array($humano,$dog,$gato,$sobremesa,$passaro);
+$coisas = array($humano,$dog,$gato,$passaro,$sobremesa);
 
 switch ($tarefa) {
     case $tarefa == 1:
@@ -23,13 +24,25 @@ switch ($tarefa) {
         }
         break;
     case $tarefa == 2:
-
+        for ($i = 0; $i < 5 ; $i++) {
+        $result = $result . $coisas[$i] . "<br>";
+        if ($i === 1) {
+            $result = $result . $extra . "<br>";
+        }
+        }
         break;
     case $tarefa == 3:
-
+        array_pop($coisas);
+        for ($i = 0; $i < 4 ; $i++) {
+        $result = $result . $coisas[$i] . "<br>";
+        }
         break;
     case $tarefa == 4:
-
+        if (array_search($extra,$coisas) === false) {
+            $result = "VALOR INESISTENTE";
+        } else {
+            $result = array_search($extra,$coisas);
+        }
         break;
     default:
         $result = $coisas[0];
