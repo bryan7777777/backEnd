@@ -1,0 +1,28 @@
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: gray;
+    gap: 50px;
+}
+
+form, #result{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(158, 223, 201);
+    border: solid 2px black;
+    padding: 15px;
+    gap: 15px;
+}
+
+.radio{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 400px;
+}
