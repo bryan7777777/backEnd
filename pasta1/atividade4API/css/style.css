@@ -1,0 +1,49 @@
+body, html{
+    overflow-x: hidden;
+    height: 100vh;
+    background-color: rgb(198, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+form{
+    display: flex;
+    gap: 10px;
+    border: dashed rgb(5, 5, 66) 2px;
+    padding: 25px;
+    border-radius: 25px;
+}
+
+#bloco{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.bloco{
+    border: dashed rgb(5, 5, 66) 2px;
+    padding: 25px;
+    border-radius: 25px;
+}
+
+#pais1, #filtro1, #pais1 option, #filtro1 option{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 5px;
+}
+
+button{
+    margin-top: 7%;
+    height: 80%;
+    background-color: rgb(5, 5, 66);
+    color: rgb(169, 239, 248);
+    border-radius: 10px;
+}
+
+button:hover{
+    background-color: rgb(42, 205, 226);
+    color: rgb(5, 5, 66);
+}
