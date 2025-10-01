@@ -1,8 +1,9 @@
 <?php
 
 function horas(){
-    $hj = number_format((time() / 1970)/ 60 / 60/ 14.52, 2, ":", ".");
-    return $hj;
+    $hj = time();
+    $hj2 = date("Y-m-d",$hj);
+    return $hj2;
 }
 function validarEntradas($paramNome, $paramNotas){
     if (isset($paramNome)&&count($paramNotas)!=0) {
