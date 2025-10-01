@@ -1,4 +1,16 @@
 <?php
+
+function horas(){
+    $hj = number_format((time() / 1970)/ 60 / 60/ 14.52, 2, ":", ".");
+    return $hj;
+}
+function validarEntradas($paramNome, $paramNotas){
+    if (isset($paramNome)&&count($paramNotas)!=0) {
+        return true;
+    } else {
+        return false;
+    }
+}
 function exibir(){
     $hora = time();
     echo "hello world, {$hora}";
@@ -12,13 +24,33 @@ function valMedia($media){
     return $media >= 7?true:false;
 }
 
+function msg($mensagem){
+    return $mensagem;
+}
+
+function result($valMedia, $msg){
+    if ($valMedia == true) {
+        $msg2 = "COM BASE NA SUA MEDIA VC PASSOU";
+    } else {
+        $msg2 = "COM BASE NA SUA MEDIA VC NAO PASSOU";
+    }
+
+    return "{$msg} <br> {$msg2}";
+}
+
 $nome = trim($_GET['nome']);
 $notas = $_GET['notas'];
 
-$media = calcular($notas);
-$result = valMedia($media);
+if (validarEntradas($nome, $notas)) { 
+    $media = calcular($notas);
+    $valMedia = number_format(valMedia($media), 2);
+    $msg = msg("Olá, {$nome}! Sua média é: {$media}");
+    $result = result($valMedia, $msg);
+    $horario = horas();
+} else {
+    header("Location: ../index.html");
+}
 
-$mensagemBoasVindas = "Olá, {$nome}! Sua média é: {$media}";
 ?>
 
 <!DOCTYPE html>
@@ -33,9 +65,9 @@ $mensagemBoasVindas = "Olá, {$nome}! Sua média é: {$media}";
 
 <body>
     <main class="container">
+        <p><?=$horario ?></p>
         <h1>Performance do Aluno</h1>
-        <p><?= $mensagemBoasVindas ?></p>
-        <p id="<?= $media>=7 ? "aprovado" : "reprovado"; ?>"><?= $mensagemResultado ?></p>
+        <p id="<?= $media>=7 ? "aprovado" : "reprovado"; ?>"><?= $result ?></p>
     </main>
 </body>
 
