@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Conversão</title>
+</head>
+<body>
+    <form action="./php/semFunction.php" method="get">
+        <label for="">INFORME QUANTO DESEJA CONVERTER EM REAL</label>
+        <input type="text" placeholder="0.00">
+        <label for="">INFORME QUAL MOEDA DESEJA CONVERTER O REAL</label>
+        <div>
+        <label for="">DOLAR</label>
+        <input type="radio" name="moeda" value="1">
+        </div>
+        <div>
+        <label for="">EURO</label>
+        <input type="radio" name="moeda" value="2">
+        </div>
+        <div>
+        <label for="">YENS</label>
+        <input type="radio" name="moeda" value="3">
+        </div>
+        <input type="submit" value="Calcular">
+    </form>
+</body>
+</html>
