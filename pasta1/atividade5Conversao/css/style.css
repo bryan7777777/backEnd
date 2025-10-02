@@ -1,0 +1,23 @@
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(32, 32, 32);
+}
+
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 30%;
+    width: 20%;
+    text-align: center;
+    gap: 10px;
+    border: rgb(255, 255, 0) solid 3px;
+    border-radius: 25px;
+    padding: 10px;
+    background-color: rgb(235, 210, 101);
+}
