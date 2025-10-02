@@ -1,17 +1,25 @@
 <?php
 
 function horas(){
-    $hj = time();
-    $hj2 = date("Y-m-d",$hj);
-    return $hj2;
+    date_default_timezone_set("America/Sao_Paulo");
+    $hj = date("h:i:sa");
+    $hj2 = date("Y-m-d",time());
+    $diaHora = "{$hj2} <br><br> {$hj}";
+    return $diaHora;
 }
-function validarEntradas($paramNome, $paramNotas){
-    if (isset($paramNome)&&count($paramNotas)!=0) {
-        return true;
-    } else {
-        return false;
+    function validarEntrada($nome,$notas) {
+        if (isset($_GET['nome']) && !empty($_GET['nome']) && isset($_GET['notas']) && is_array($notas) && count($notas) > 0) {
+            foreach ($notas as $nota) {
+                if (!is_numeric($nota) || $nota < 0 || $nota > 10) {
+                    return false;
+                }
+            }
+            return true;
+        } else {
+            return false;
+        }
     }
-}
+    
 function exibir(){
     $hora = time();
     echo "hello world, {$hora}";
@@ -42,7 +50,7 @@ function result($valMedia, $msg){
 $nome = trim($_GET['nome']);
 $notas = $_GET['notas'];
 
-if (validarEntradas($nome, $notas)) { 
+if (validarEntrada($nome, $notas)) { 
     $media = calcular($notas);
     $valMedia = number_format(valMedia($media), 2);
     $msg = msg("Olá, {$nome}! Sua média é: {$media}");
@@ -66,9 +74,10 @@ if (validarEntradas($nome, $notas)) {
 
 <body>
     <main class="container">
-        <p><?=$horario ?></p>
+        
         <h1>Performance do Aluno</h1>
         <p id="<?= $media>=7 ? "aprovado" : "reprovado"; ?>"><?= $result ?></p>
+        <p><?=$horario?></p>
     </main>
 </body>
 
