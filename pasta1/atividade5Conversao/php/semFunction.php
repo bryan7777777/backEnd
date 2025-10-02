@@ -19,3 +19,49 @@ Importante
      - criação da função que converte para dólar
      - criação da função que converte para euro
      - criação da função que converte para a moeda de sua escolha  -->
+
+<?php 
+$valor = filter_input(INPUT_GET, "valor", FILTER_VALIDATE_FLOAT);
+$opcao = filter_input(INPUT_GET, "moeda", FILTER_VALIDATE_INT);
+$result = "";
+
+// teste para ver se na valodação ele vem null
+// echo $valor==null? "sim":"no";
+
+if ($valor==null || $opcao == null) {
+    header("Location: ../index.html");
+}
+
+switch ($opcao) {
+    case 1:
+        $result = number_format($valor*0.16, 2, ",", ".");
+        break;
+        
+    case 2:
+        $result = number_format($valor*0.1877, 2, ",", ".");
+        break;
+    
+    case 3:
+        $result = number_format($valor*27.60, 2, ",", ".");
+        break;
+    
+    default:
+        break;
+}
+?>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../css/style.css">
+    <title>RESULTADO DA CONVERSÃO</title>
+</head>
+<body>
+    <div id="result">
+        <h1><?="O resultado da conversão é:"?></h1>
+        <?=$result?>
+    </div>
+</body>
+</html>
