@@ -41,6 +41,43 @@ CREATE TABLE veterinario(
 idVeterinario INT PRIMARY KEY AUTO_INCREMENT,
 nomeVet VARCHAR(50) NOT NULL,
 celularVet CHAR(11) NOT NULL,
-crmv VARCHAR(20) NOT NULL,
+crmv VARCHAR(20) NOT NULL UNIQUE,
 especialidade VARCHAR(50)
 );
+
+CREATE TABLE consulta (
+idconsulta INT PRIMARY KEY AUTO_INCREMENT,
+idAnimal INT NOT NULL,
+idVeterinario INT NOT NULL,
+dataHora DATETIME NOT NULL,
+pago BIT NOT NULL DEFAULT 0,
+formaPago VARCHAR(50) NOT NULL,
+qtdVezes TINYINT DEFAULT 1,
+valorTotal DECIMAL(10,2) NOT NULL,
+valorPago DECIMAL(10,2),
+CONSTRAINT fk_consulta_animal FOREIGN KEY (idAnimal)
+REFERENCES animal(idAnimal),
+CONSTRAINT fk_consulta_vet FOREIGN KEY (idVeterinario)
+REFERENCES veterinario(idVeterinario)
+);
+
+CREATE TABLE tipoServico (
+idTipoServico INT PRIMARY KEY AUTO_INCREMENT,
+nomeServico VARCHAR(50) NOT NULL,
+valor DECIMAL(10,2) NOT NULL
+);
+
+CREATE TABLE ConsultatipoServicoConsulta (
+idConsultatipoServicoConsulta INT PRIMARY KEY AUTO_INCREMENT,
+idConsulta INT NOT NULL,
+idTipoServico INT NOT NULL,
+valorServico DECIMAL(10,2) NOT NULL,
+CONSTRAINT fk_ConsultatipoServico_consulta FOREIGN KEY (idConsulta)
+REFERENCES consulta(idConsulta),
+CONSTRAINT fk_ConsultatipoServico_tipoServico FOREIGN KEY (idTipoServico)
+REFERENCES tipoServico(idTipoServico)
+);petshoop
+
+SHOW TABLES 
+
+DROP TABLE xxx
