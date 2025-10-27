@@ -25,6 +25,15 @@ ORDER BY nomeCliente
 
 
 
+SELECT nomeCliente, cidade FROM cliente
+WHERE nomeCliente LIKE 'R%'
+ORDER BY nomeCliente
+
+
+
+SELECT idCliente, nomeCliente, email, cpf FROM cliente
+WHERE email LIKE ('%@uol.%') AND estado IN ('SP')
+ORDER BY nomeCliente
 
 
 estado IN ('ps','sp')
