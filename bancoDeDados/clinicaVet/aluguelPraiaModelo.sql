@@ -72,9 +72,19 @@ VALUES
 ('Capitão Boeing','85274196310','capitaoboeing@uol.com.br','Manaus','AM','69005100','Rua','Amazonas','101','Casa'),
 ('Pão Duro Mac Money','78965425871','paoduro@ig.com.br','Osasco','SP','06010120','Rua','dos Economistas','12','Apartamento 44');
 
+INSERT INTO funcionario(nomeFuncionario,cpfFuncionario,celularFuncionario)
+VALUES
+('Cebolinha','32165498711','91030001'),
+('Cascão','32165498701','98030001'),
+('Chico Bento','32165498702','18030001');
 
-
-
+INSERT INTO equipamento(nomeequipamento,qtd,valorHora)
+VALUES
+('Cadeira 02 posições','50','2.00'),
+('Cadeira 04 posições','100','3.50'),
+('Guarda Sol P','40','2.00'),
+('Guarda Sol G','60','3.00'),
+('Mesinha','30','1.50');
 
 
 ALTER TABLE cliente ADD(
@@ -91,5 +101,9 @@ complemento VARCHAR(30)
 SHOW TABLES 
 
 SELECT * FROM cliente
+
+SELECT * FROM funcionario
+
+SELECT * FROM equipamento
 
 DROP TABLE 
