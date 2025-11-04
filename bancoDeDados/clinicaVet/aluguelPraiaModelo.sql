@@ -20,7 +20,6 @@ valorHora DECIMAL(5,2) NOT NULL
 
 CREATE TABLE aluguel (
 idaluguel INT PRIMARY KEY AUTO_INCREMENT,
-idequipamento INT NOT NULL,
 idFuncionario INT NOT NULL,
 idCliente INT NOT NULL,
 dataHoraRetirada DATETIME NOT NULL,
@@ -100,10 +99,12 @@ complemento VARCHAR(30)
 
 SHOW TABLES 
 
-SELECT * FROM cliente
+SELECT * FROM cliente ORDER BY nomecliente
 
 SELECT * FROM funcionario
 
 SELECT * FROM equipamento
+
+SELECT * FROM aluguel
 
 DROP TABLE 
