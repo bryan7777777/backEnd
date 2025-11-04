@@ -8,25 +8,25 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
     $operacao=$_POST['operacao'];
 
     //criacao obj
-    $calc= new Calculadora($num1,$num2);
-    switch ($operacao) {
-        case 'somar':
-            $result=$calc->somar();
-            break;
-        case 'sub':
-            $result=$calc->sub();
-            break;
-        case 'div':
-            $result=$calc->div();
-            break;
-        case 'mult':
-            $result=$calc->mult();
-            break;
+    // $calc= new Calculadora($num1,$num2);
+    // switch ($operacao) {
+    //     case 'somar':
+    //         $result=$calc->somar();
+    //         break;
+    //     case 'sub':
+    //         $result=$calc->sub();
+    //         break;
+    //     case 'div':
+    //         $result=$calc->div();
+    //         break;
+    //     case 'mult':
+    //         $result=$calc->mult();
+    //         break;
         
-        default:
-            echo "ERRO MORTAL SEM VALOR SEM PLACA DE VIDEO INTACTA";
-            break;
-    }
+    //     default:
+    //         echo "ERRO MORTAL SEM VALOR SEM PLACA DE VIDEO INTACTA";
+    //         break;
+    // }
 }
 ?>
 
