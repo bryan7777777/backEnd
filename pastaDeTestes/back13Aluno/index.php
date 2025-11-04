@@ -33,6 +33,9 @@ require_once "Aluno.php"
         $bairro=$_POST["bairro"];
         $curso=$_POST["curso"];
         
+        $aluno = new Aluno($nome,$cidade,$bairro,$curso);
+        echo"<br>";
+        $aluno->exibir();
     }
     ?>
 </body>
