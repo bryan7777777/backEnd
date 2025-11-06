@@ -146,3 +146,13 @@ SELECT estado, COUNT(idcliente) AS 'cabas' FROM cliente
 WHERE estado IN ('sp') /*FILTRO*/
 GROUP BY estado        /*AGRUPAMENTE*/
 ORDER BY estado DESC   /*ORDENAÇÃO*/
+
+
+SELECT * FROM animal
+
+SELECT especie, COUNT(idanimal) AS 'animais fonfis' FROM animal
+GROUP BY especie
+
+SELECT especie, COUNT(idanimal) AS 'animais fonfis' FROM animal
+GROUP BY especie
+HAVING COUNT(especie)>3
