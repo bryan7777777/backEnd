@@ -58,3 +58,28 @@ ORDER BY nomeCliente DESC
 
 /*exibir tabelas*/
 SELECT * FROM cliente
+
+INSERT INTO tiposervico (nomeservico, valor)
+VALUES 
+('Consulta Padrão',150),
+('Consulta Emergência',250),
+('Exame - Sangue',100),
+('Exame - Ultrassom|Raio X',300),
+('Vacina - Geral',100),
+('Castração',80),
+('Internação',600);
+
+INSERT INTO consulta(idAnimal, idVeterinario, dataHora, pago, formaPago, qtdVezes, valorTotal, valorPago)
+VALUES
+(5, 2, '2025-10-20 14:30:00', 1, 'Cartão de crédito', 2, 180.00, 180.00),
+(4, 1, '2025-10-25 09:15:00', 0, 'Dinheiro', 1, 120.00, NULL),
+(3, 3, '2025-11-02 16:00:00', 1, 'Pix', 1, 150.00, 150.00),
+(2, 4, '2025-11-03 10:45:00', 1, 'Cartão de débito', 1, 200.00, 200.00),
+(1, 6, '2025-11-05 11:20:00', 0, 'Cartão de crédito', 3, 250.00, 0.00);
+ 
+INSERT INTO consultatiposervicoconsulta (idconsulta, idtiposervico, valorservico)
+VALUES (11, 5, 100.00),
+(12, 6, 80.00),
+(13, 7, 600.00),
+(14, 1, 150.00),
+(15, 2, 250.00);

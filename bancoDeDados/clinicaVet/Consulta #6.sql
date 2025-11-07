@@ -155,4 +155,4 @@ GROUP BY especie
 
 SELECT especie, COUNT(idanimal) AS 'animais fonfis' FROM animal
 GROUP BY especie
-HAVING COUNT(especie)>3
+HAVING COUNT(idanimal)>1

@@ -108,3 +108,4 @@ SELECT * FROM equipamento
 SELECT * FROM aluguel
 
 DROP TABLE 
+
