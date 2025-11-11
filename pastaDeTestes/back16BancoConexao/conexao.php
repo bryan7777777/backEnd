@@ -2,20 +2,7 @@
 $host ="localhost"; //local banco
 $banco = "sistema_clientes"; //nome banco
 $usuario = "root"; //caba login
-$senha="Às vezes penso
-que eu não existo inteiro,
-mas um mosaico de afetos:
-um olhar daqui,
-um abraço dali,
-um adeus que ainda ecoa.
- 
-E no fim,
-o que me sobra não é só solidão,
-mas a certeza cruel
-de que todos que amei
-se tornaram parte de mim 
-mesmo quando já não estão!
- "; //senha do user serv
+$senha=""; //senha do user serv
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$banco;charset=utf8",$usuario,$senha);
