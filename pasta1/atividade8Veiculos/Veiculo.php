@@ -1,29 +1,32 @@
 <?php
-session_start();
-class Veiculo{
-    private $saldo;
-    public function __construct(){
-        $this->saldo=isset($_SESSION['saldo'])?$_SESSION['saldo']:0;
+abstract class Veiculo {
+    protected $marca;
+    protected $modelo;
+    protected $precoDiaria;
+    protected $disponivel;
+
+    public function __construct($marca, $modelo, $precoDiaria, $disponivel = true) {
+        $this->marca = $marca;
+        $this->modelo = $modelo;
+        $this->precoDiaria = $precoDiaria;
+        $this->disponivel = $disponivel;
     }
-    public function setSaldo($saldo){
-        $this->saldo=$saldo;
-        $_SESSION['saldo']=$this->saldo;
+
+    public function getDescricao() {
+        return $this->marca . " " . $this->modelo;
     }
-    public function getSaldo(){
-        return $this->saldo;
+
+    public function alugar() {
+        $this->disponivel = false;
     }
-    public function depositar($quantia){
-        if ($quantia>0) {
-                $saldoNovo=$this->saldo+$quantia;
-                $this->setSaldo($saldoNovo);
-        }
+
+    public function devolver() {
+        $this->disponivel = true;
     }
-    public function sacar($quantia){
-        if ($quantia>0&&$quantia<=$this->getSaldo()) {
-            $this->setSaldo($this->getSaldo()-$quantia);
-        }else{
-        echo"VC N TEM DINHEIRO, APOS 24HR SUA ALMA SERA LEVADA PELO BANCO PARA COBRIR SEUS GASTOS";
-        }
+
+    public function isDisponivel() {
+        return $this->disponivel;
+    }
+
+    abstract public function calcularCusto($dias);
 }
-}
-?>
