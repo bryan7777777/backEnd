@@ -45,6 +45,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mensagem = "O campo nome é obrigatório!";
     }
 }
+//criar uma consulta no banco para mostrar as informações
+$sql="SELECT * FROM clientes ORDER BY id DESC";
+$stmt=$pdo->query($sql);
+$clientes=$stmt->fetchAll(PDO::FETCH_ASSOC);//slv all registros num arrey assoc
 
 
 ?>
@@ -86,6 +90,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="mensagem"><?= $mensagem ?></div>
     <?php } ?>
 
+    <?php
+    if (!empty($clientes)) {?>
+    <div class="tabela-container">
+        <h3>clientes localizados</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NOME</th>
+                    <th>ENDEREÇO</th>
+                    <th>CIDADE</th>
+                    <th>BAIRRO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                foreach($clientes as $cliente){?>
+                    <tr>
+                        <td><?= $cliente['id']?></td>
+                        <td><?= htmlspecialchars($cliente['nome'])?></td>
+                        <td><?= htmlspecialchars($cliente['endereco'])?></td>
+                        <td><?= htmlspecialchars($cliente['cidade'])?></td>
+                        <td><?= htmlspecialchars($cliente['bairro'])?></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
+    <?php } ?>
+    
 
 
 </body>
