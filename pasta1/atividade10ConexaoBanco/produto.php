@@ -10,16 +10,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (!empty($nome)) {
 
+        //$sql é a implementação dos dados, os valores com : serão subistituidos, como :nome por $nome='carlos alberto de oliveira da silva soares de carvalho da cunha cruz'
         $sql = "INSERT INTO produtos (nome, preco, quantidade, descricao)
                 VALUES (:nome, :preco, :quantidade, :descricao)";
 
+        //$stmt esta preparando utilizando o molde do $sql para subistituir os valores
         $stmt = $pdo->prepare($sql);
 
+        // preencendo valores, escolhendo qual : vai ser subistituido por qual variavel
         $stmt->bindParam(":nome", $nome);
         $stmt->bindParam(":preco", $preco);
         $stmt->bindParam(":quantidade", $quantidade);
         $stmt->bindParam(":descricao", $descricao);
 
+        //msg pos cadastro, falha ou sucesso
         if ($stmt->execute()) {
             $mensagem = "produto cadastrado com sucesso!";
         } else {
@@ -29,6 +33,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mensagem = "O campo nome é obrigatório!";
     }
 }
+
+//pega na tabela produtos em ordem decrescente
 $sql="SELECT * FROM produtos ORDER BY id DESC";
 $stmt=$pdo->query($sql);
 $produtos=$stmt->fetchAll(PDO::FETCH_ASSOC);
