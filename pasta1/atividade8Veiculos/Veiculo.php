@@ -2,7 +2,7 @@
 abstract class Veiculo {
     protected $marca;
     protected $modelo;
-    protected $precoDiaria;
+    public $precoDiaria;
     protected $disponivel;
 
     public function __construct($marca, $modelo, $precoDiaria, $disponivel = true) {

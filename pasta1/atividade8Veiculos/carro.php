@@ -11,6 +11,6 @@ class Carro extends Veiculo {
 
     public function calcularCusto($dias) {
         $total = $this->precoDiaria * $dias;
-        return $total + ($total * 0.10); // taxa de 10%
+        return $total + ($total * 0.10);
     }
 }

@@ -2,6 +2,7 @@
 require_once 'Carro.php';
 require_once 'Moto.php';
 require_once 'Cliente.php';
+require_once 'Veiculo.php';
 
 $cliente = new Cliente("João da Silva", "123.456.789-00");
 
@@ -12,7 +13,7 @@ $veiculos = [
     new Moto("Yamaha", "Fazer 250", 120, 250)
 ];
 
-$dias = 3; // exemplo de cálculo
+$dias = 3;
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
