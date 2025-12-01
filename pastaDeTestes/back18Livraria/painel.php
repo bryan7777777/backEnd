@@ -41,6 +41,9 @@ if (!isset($_SESSION["usuario"])){
     </div>
     <a class="logout" href ="logout.php">Sair</a>
 </nav>
+
+    
+
     </div>
     
 </body>
