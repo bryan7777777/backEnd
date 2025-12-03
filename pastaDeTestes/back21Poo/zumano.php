@@ -16,7 +16,7 @@ class zumano{
 $zumano = new zumano();
 $zumano->__set('nome','augustinho');
 $zumano->__set('idade','44');
-echo $zumano->__get('nome');
+echo $zumano->__get('nome')."<br>";
 
 $zumano2 = new zumano();
 $zumano2->__set('nome','rogerio');
