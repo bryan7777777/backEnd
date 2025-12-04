@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sla</title>
+</head>
+<body>
+<form action="./main.php" method="get">
+<div>
+<label for="nome">Nome</label>
+<input id="nome" name="nome" type="text" placeholder="Digite seu nome" required>
+</div>
+
+
+<div>
+<label for="tipoClasse">Tipo de classe</label>
+<select id="tipoClasse" name="classe">
+<option value="">— selecione —</option>
+<optgroup label="Classes ofensivas">
+<option value="guerreiro">Guerreiro</option>
+<option value="arqueiro">Arqueiro</option>
+<option value="mago">Mago</option>
+<option value="assassino">Assassino</option>
+</optgroup>
+<optgroup label="Classes defensivas/suporte">
+<option value="paladino">Paladino</option>
+<option value="clerigo">Clérigo</option>
+<option value="druida">Druida</option>
+<option value="guardiao">Guardião</option>
+</optgroup>
+<optgroup label="Magias & sombras">
+<option value="necromante">Necromante</option>
+<option value="bruxo">Bruxo</option>
+<option value="feiticeiro">Feiticeiro</option>
+</optgroup>
+</select>
+</div>
+
+<div class="actions">
+<button type="submit">Enviar</button>
+</div>
+</form>
+</body>
+</html>
