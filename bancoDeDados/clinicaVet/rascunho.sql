@@ -37,3 +37,46 @@ ORDER BY nomeCliente
 
 
 estado IN ('ps','sp')
+
+-- ===========================================================================================
+
+/*Criação da view */
+CREATE VIEW vw_ClienteAluguelFuncionario AS 
+
+/*corpo da view*/
+SELECT nomeCliente, dataHoraRetirada, nomeFuncionario 
+FROM cliente 
+INNER JOIN aluguel 
+ON cliente.idCliente = aluguel.idCliente
+INNER JOIN funcionario
+ON funcionario.idFuncionario = aluguel.idFuncionario
+ 
+/*Exclusão da View */
+DROP VIEW vw_ClienteAluguelFuncionario
+ 
+/*Utilização da view sem filtros*/
+SELECT email FROM vw_ClienteAluguelFuncionario
+ 
+/*Utilização da view com filtros*/
+SELECT email FROM vw_ClienteAluguelFuncionario 
+WHERE nomeCliente LIKE 'm%'
+ORDER by nomeCliente
+ 
+-- ===========================================================================================
+--PU
+
+CREATE PROCEDURE pu_valorItemEquipamento (IN valorAtt VARCHAR(50), id VARCHAR(100))
+UPDATE equipamento 
+SET valor = valor * concat('1.', valorAtt) 
+WHERE idEquipamento = id;
+
+CALL pu_valorItemEquipamento('10') /*chamar a procedure e executá-la */
+ 
+--PS
+
+CREATE PROCEDURE ps_PessoaEstado (IN cidade1 VARCHAR(50), estado1 CHAR(2))
+SELECT cidade, estado FROM cliente  
+WHERE cidade LIKE concat(cidade1,'%') AND estado = estado1
+ORDER BY nomeCliente ASC ;
+
+CALL ps_PessoaEstado('São Paulo', 'SP') /*chamar a procedure e executá-la */
