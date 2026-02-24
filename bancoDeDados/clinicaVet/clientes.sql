@@ -61,4 +61,5 @@ END //
 
 DELIMITER ;
 
-CALL attEstoqueAluguel(1, 2, 3, 5, 100.00, 20.00);
+/*idCliente, idFuncionario, idItem, quantidadeDeItens, valorItem, valorUnitario*/
+CALL attEstoqueAluguel(1, 2, 3, 5, 2.00, 2.00);

@@ -1,53 +1,69 @@
-CREATE TABLE Usuario (
-idUsuario INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-nickNameUsuario VARCHAR(45) NOT NULL UNIQUE,
-emailUser VARCHAR(45) NOT NULL UNIQUE,
-senhaUsuario VARCHAR(45) NOT NULL,
-qtdPlayJogo INT,
-qtdGanhoJogo INT,
-qtdReciclagem INT
+CREATE TABLE userr(
+idUser INT PRIMARY KEY AUTO_INCREMENT UNIQUE ,
+dataNascimento DATE NOT NULL, 
+userName VARCHAR(45) NOT NULL UNIQUE,
+email VARCHAR(45) NOT NULL UNIQUE ,
+senha VARCHAR(45) NOT NULL,
+ultimoLogin DATETIME NOT NULL,
+diaCriado DATETIME NOT NULL
 );
  
-CREATE TABLE ranking (
-idRanking INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-runLixoReciclado INT NOT NULL,
-scoreLixoReciclado INT NOT NULL
+
+
+CREATE TABLE conquistas(
+idConquista INT PRIMARY KEY AUTO_INCREMENT UNIQUE, 
+idUser INT NOT NULL,
+nomeConquista VARCHAR (50) NOT NULL,
+concluido BIT NOT NULL,
+premio VARCHAR(100) NOT NULL,
+dsc VARCHAR(100) NOT NULL,
+concluidoDia DATETIME,
+progresso INT,
+
+FOREIGN KEY (idUser) REFERENCES userr(idUser)
 );
+
+
+
+CREATE TABLE userStatus (
+idUserStatus INT PRIMARY KEY AUTO_INCREMENT NOT NULL UNIQUE,
+idUser INT NOT NULL,
+ultimoLoginJogo DATETIME NOT NULL,
+lixoTotal INT,
+lixoUnic INT,
+qtdWin INT,
+qtdJogo INT,
  
-CREATE TABLE conquistas (
-idConquista INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-nomeConquista VARCHAR(45) NOT NULL,
-descricaoConquista VARCHAR(45) NOT NULL,
-premioConquista VARCHAR(45) NOT NULL,
-concluida BIT DEFAULT 0
+FOREIGN KEY (idUser) REFERENCES userr(idUser)
 );
- 
-CREATE TABLE carta (
-idCarta INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-tipoCarta VARCHAR(45) NOT NULL,
-raridadeCarta VARCHAR(45) NOT NULL,
-qtdUsada INT
-);
- 
-CREATE TABLE dashboard (
-idDashboard INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-idUsuario INT NOT NULL,
-idConquista INT NOT NULL,
-idRanking INT NOT NULL,
-idCarta INT NOT NULL,
-CONSTRAINT fk_dashboard_usuario FOREIGN KEY (idUsuario)
-REFERENCES usuario(idUsuario),
-CONSTRAINT fk_dashboard_ranking FOREIGN KEY (idRanking)
-REFERENCES ranking(idRanking),
-CONSTRAINT fk_dashboard_conquistas FOREIGN KEY (idConquista)
-REFERENCES conquistas(idConquista),
-CONSTRAINT fk_dashboard_carta FOREIGN KEY (idCarta)
-REFERENCES carta(idCarta)
-);
- 
- 
-SELECT * FROM usuario;
-SELECT * FROM ranking;
-SELECT * FROM conquistas;
-SELECT * FROM carta;
-SELECT * FROM dashboard;
+
+
+
+/*INSERÇÃO DOS USUARIOS */  
+INSERT INTO userr (userName, email, senha, dataNascimento, ultimoLogin, diaCriado)
+VALUES
+('james', 'james@email.com', '123456', '2024-08-10', CURDATE(), CURDATE()),
+('gameleira', 'gameleira@email.com', '123456', '2024-08-10', CURDATE(), CURDATE()),
+('pedrofarinha', 'pedrofarinha@email.com', '123456', '2024-08-10', CURDATE(), CURDATE()),
+('nagano', 'nagano@gmail.com', '123456', '2024-08-10', CURDATE(), CURDATE());
+
+/*	INSERCOES PEDIDAS*/ 
+/*insercao de usuario no ranking */
+INSERT INTO userStatus (idUser, ultimoLoginJogo, lixoTotal, lixoUnic, qtdWin, qtdJogo)
+VALUES
+(1, NOW(), 150, 60, 12, 30),   
+(2, NOW(), 90, 35, 7, 20),    
+(3, NOW(), 210, 80, 18, 45),  
+(4, NOW(), 40, 15, 2, 10);     
+
+SELECT * FROM userr
+SELECT * FROM userStatus
+
+/*CONFERIR RANKING */
+SELECT userr.userName, userstatus.lixoTotal FROM userstatus
+JOIN userr ON userr.idUser = .userstatus.idUser
+ORDER BY userstatus.lixoTotal DESC;
+
+SELECT userr.userName, userstatus.lixoUnic FROM userstatus
+JOIN userr ON userr.idUser = .userstatus.idUser
+ORDER BY userstatus.lixoUnic DESC;
