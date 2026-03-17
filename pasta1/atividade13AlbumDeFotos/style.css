@@ -1,12 +1,60 @@
+body{
+    background-color: rgb(213, 255, 241);
+    color: rgb(0, 33, 59);
+}
+
 .gallery{
-    display: flex;
-    flex-direction: wrap;
+display:flex;
+flex-wrap:wrap;
+height: 50%;
+width: 100%;
+gap: 35px;
 }
+
 .gallery img{
-    width: 19%;
-    margin: 0.5%;
-    transform: transform 0.2s;
+max-width: 200px;
+margin:0.2%;
+height: auto;
+max-height: 350px;
+transition:transform 0.2s;
 }
+
 .gallery img:hover{
-    transform: scale(1.5);
+transform:scale(1.1);
+border:solid 1px blue;
+}
+
+form, body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+form{
+    height: 50%;
+}
+
+#env{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+a{
+    text-decoration: none;
+}
+
+button, input{
+    background-color: rgb(255, 222, 161);
+    border: solid 2px rgb(201, 108, 127);
+    border-radius: 25px;
+    padding: 20px;
+    transition: 0.5s;
+}
+
+button:hover{
+    scale: calc(1.2);
 }

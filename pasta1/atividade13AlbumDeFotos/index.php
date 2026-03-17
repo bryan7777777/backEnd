@@ -1,24 +1,42 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['user'])){
+    $_SESSION['user'] = session_id();
+}
+
+$pasta = "uploads/" . $_SESSION['user'];
+
+if(!is_dir($pasta)){
+    mkdir($pasta);
+}
+?>
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galeria de Imagens</title>
-    <link rel="stylesheet" href="./style.css">
+<meta charset="UTF-8">
+<title>Galeria</title>
+<link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-    <h1>Galeria de Imagens</h1>
-    <form action="upload.php" method="post" enctype="multipart/form-data">
-        <input type="file" name="image" id="image/*">
-        <button type="submit">Enviar Imagem</button>
-    </form>
-    <div class="gallery">
-        <?php
-        $files=glob("uploads/*.*");
-        foreach ($files as $file) {
-            echo '<img src="'.$file.'" alt="Imagem">';
-        }
-        ?>
-    </div>
+
+    
+<form action="upload.php" method="post" enctype="multipart/form-data">
+<h1>Galeria de imagens</h1>
+<div id="env"><input type="file" name="image">
+<button type="submit">Enviar imagem</button></div>
+
+</form>
+
+<div class="gallery">
+<?php 
+$files = glob("uploads/" . $_SESSION['user'] . "/*.*");
+foreach ($files as $file) {
+echo '<img src="' . $file . '" alt="Imagem">';
+}
+?>
+</div>
+
 </body>
 </html>
