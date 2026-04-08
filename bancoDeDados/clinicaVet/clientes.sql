@@ -30,6 +30,9 @@ SELECT * FROM clientes;
 
 
 
+
+
+
 DELIMITER //
 
 CREATE PROCEDURE attEstoqueAluguel(

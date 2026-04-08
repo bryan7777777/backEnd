@@ -1,12 +1,12 @@
 <?php 
-class Pizza{
+class Bebida{
     private $conn;
-    private $tabela ="pizzas";
+    private $tabela ="bebidas";
 
     
-    public $idPizza;
+    public $idBebida;
     public $nome;
-    public $ingredientes;
+    public $acoolica;
     public $valor;
 
     public function __construct($db)
@@ -16,7 +16,7 @@ class Pizza{
 
     function read() {
         // Query SQL para selecionar todos os campos da tabela de pizzas
-        $query = "SELECT idPizza, nome, ingredientes, valor FROM " . $this->tabela . " ORDER BY valor";
+        $query = "SELECT * FROM " . $this->tabela . " ORDER BY valor";
  
         // Prepara a query
         $stmt = $this->conn->prepare($query);
