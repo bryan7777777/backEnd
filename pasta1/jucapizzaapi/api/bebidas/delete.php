@@ -2,7 +2,7 @@
 // Headers
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
-header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Methods: DELETE');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
  
 include_once '../../config/Database.php';
@@ -12,51 +12,46 @@ include_once '../../models/Bebida.php';
 $database = new Database();
 $db = $database->getConnection();
  
-// Instanciar o objeto bebida
+// Instanciar o objeto Bebida
 $bebida = new Bebida($db);
  
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+ 
+if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
     try {
         // Obter os dados postados
         $data = json_decode(file_get_contents("php://input"));
- echo (json_encode($data));
-        // Verificar se os dados não estão vazios
-        if (
-            !empty($data->nome) &&
-            isset($data->alcoolica) &&
-            !empty($data->valor)
-        ) {
-            // Atribuir os valores ao objeto bebida
-            $bebida->nome = $data->nome;
-            $bebida->alcoolica = $data->alcoolica;
-            $bebida->valor = $data->valor;
+        // Verificar se o ID foi fornecido
+        if (!empty($data->id)) {
+            // Atribuir o ID para deleção
+            $bebida->idBebida = $data->id;
  
-            // Criar a bebida
-            if ($bebida->create()) {
-                http_response_code(201);
+            // Tentar deletar a Bebida
+            if ($bebida->delete()) {
+                http_response_code(200);
                 // Resposta de sucesso
                 echo json_encode(
-                    array('Mensagem' => 'bebida Criada com Sucesso')
+                    array('Mensagem' => 'Bebida Deletada com Sucesso')
                 );
             } else {
                 http_response_code(500);
                 // Resposta de erro
                 echo json_encode(
-                    array('Mensagem' => 'Nao foi possivel criar a bebida')
+                    array('Mensagem' => 'Nao foi possivel deletar a Bebida.')
                 );
             }
         } else {
             http_response_code(400);
-            // Resposta se dados estiverem incompletos
+            // Resposta se o ID não for fornecido
             echo json_encode(
-                array('Mensagem' => 'Dados Incompletos. Nao foi possivel criar a bebida.')
+                array('Mensagem' => 'ID inválido. Nao foi possivel deletar a Bebida.')
             );
         }
+ 
     } catch (Exception $e) {
         http_response_code(500);
         echo json_encode(array("erro" => $e->getMessage()));
     }
 } else {
     http_response_code(405);
-    echo json_encode(array("erro" => "Parametro ID n fornescido!"));
+    echo json_encode(array("erro" => "Método não suportado!"));
 }
